@@ -1,0 +1,173 @@
+@import url(http://fonts.googleapis.com/css?family=Audiowide|Open+Sans|Raleway:300);
+
+body{
+	font-family: 'Open Sans', sans-serif;
+	margin:0;padding:0;
+}
+
+
+
+
+#Hero{
+	height:90vh;
+	background-size:cover;
+	background-attachment:fixed;
+}
+
+
+
+
+
+.MainTitle{
+	font-family:"Audiowide", sans-serif;
+	color:#7A52CC;
+}
+.MainTitle span{
+	color:#FF0000;
+}
+
+
+
+nav{
+	position:fixed;
+	top:10px; right:10px;
+	color:white;
+	z-index:100;
+	text-align:right;
+}
+
+nav a{
+	color:white;
+	text-decoration:none;
+}
+
+
+
+
+.SurroundBtn{
+	/*background:white;
+	color:black;*/
+	padding:15px 30px;
+	display:inline-block;
+	border:none;
+	position:relative;
+	cursor:pointer;
+	vertical-align:top;
+	margin-left:3px;
+	transition: background 0.2s ease;
+}
+.SurroundBtn:active, .SurroundBtn.CurrPage{
+	background:rgba(0,0,0, 0.6);
+}
+.SurroundBtn.CurrPage{
+	cursor:default;
+}
+
+.SurroundBtn::before, .SurroundBtn::after, .SurroundBtn .LeftPseudo, .SurroundBtn .RightPseudo{
+	position:absolute;
+	display:block;
+	/*bottom:0; left:0;
+	width:0;
+	height:5px;*/
+	background:black;
+	/*content:'';*/
+	transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+	opacity:0;
+}
+.SurroundBtn:hover::before, .SurroundBtn:hover::after, .SurroundBtn:hover .LeftPseudo, .SurroundBtn:hover .RightPseudo, .CurrPage.SurroundBtn::before, .CurrPage.SurroundBtn::after, .CurrPage.SurroundBtn .LeftPseudo, .CurrPage.SurroundBtn .RightPseudo{
+	opacity:1;
+}
+
+.SurroundBtn::before, .SurroundBtn::after{
+	height:3px; width:0;
+	content:'';
+}
+.SurroundBtn:hover::before, .SurroundBtn:hover::after, .CurrPage.SurroundBtn::before, .CurrPage.SurroundBtn::after{
+	width:100%;
+}
+
+.SurroundBtn::before{
+	top:0;right:0;
+}
+.SurroundBtn::after{
+	bottom:0; left:0;
+}
+
+
+
+.SurroundBtn .LeftPseudo, .SurroundBtn .RightPseudo{
+	width:3px; height:0;
+}
+.SurroundBtn:hover .LeftPseudo, .SurroundBtn:hover .RightPseudo, .SurroundBtn.CurrPage .LeftPseudo, .SurroundBtn.CurrPage .RightPseudo{
+	height:100%;
+}
+.SurroundBtn .LeftPseudo{
+	bottom:0;left:0;
+}
+.SurroundBtn .RightPseudo{
+	top:0;right:0;
+}
+
+
+
+
+.MainBtn{
+	vertical-align:top;
+	background:white;
+	color:black;
+	padding:12px 27px;
+	display:inline-block;
+	border:3px black solid;
+	position:relative;
+	transition: color 0.5s ease;
+	overflow:hidden;
+	cursor:pointer;
+}
+.MainBtn:hover, .MainBtn.CurrPage{
+	color:white;
+}
+.MainBtn.CurrPage{
+	background:rgba(0,0,0,0.6);
+	cursor:default;
+}
+.MainBtn.CurrPage::before, .MainBtn.CurrPage::after{
+	display:none;
+}
+
+.MainBtn span{
+	position:relative;
+	z-index:1;
+}
+.MainBtn::before{
+	content:'';
+	background:black;
+	width:100%;
+	height:100%;
+	position:absolute;
+	left: -125%; top:0;
+	z-index:0;
+	transform:skewX(45deg);
+	transition: left 0.3s ease-in, background 0.2s ease;
+}
+.MainBtn:hover::before{
+	left:calc(-50% + 1px);
+	transition: left 0.3s ease-out, background 0.2s ease;
+}
+.MainBtn::after{
+	content:'';
+	background:black;
+	width:100%;
+	height:100%;
+	position:absolute;
+	right: -125%; bottom:0;
+	z-index:0;
+	transform:skewX(45deg);
+	transition: right 0.3s ease-in, background 0.2s ease;
+}
+.MainBtn:hover::after{
+	right:-50%;
+	transition: right 0.3s ease-out, background 0.2s ease;;
+}
+.MainBtn:active::before, .MainBtn:active::after{
+	background:rgb(51,51,51);
+}
